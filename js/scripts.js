@@ -44,7 +44,16 @@
 })(jQuery); // End of use strict
 
 function validate() {
-    alert("Thank you for contacting! You have just saved a Pangolin!");
+    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+    var email = $('#email').val();
+
+    if(!emailReg.test(email)){
+        $('#email').after('<span class="error"> Please enter a valid email address</span>');
+    } else {
+        alert("Thank you for contacting! You have just saved a Pangolin!");
+    }
+
+    
 }
 
 var input = document.getElementById("searchBar");
