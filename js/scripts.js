@@ -47,6 +47,8 @@ function validate() {
     var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
     var email = $('#email').val();
 
+    $('.error').hide();
+
     if(!emailReg.test(email)){
         $('#email').after('<span class="error"> Please enter a valid email address</span>');
     } else {
