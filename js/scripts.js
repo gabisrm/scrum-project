@@ -43,7 +43,7 @@
     });
 })(jQuery); // End of use strict
 
-function alertContact() {
+function validate() {
     alert("Thank you for contacting! You have just saved a Pangolin!");
 }
 
