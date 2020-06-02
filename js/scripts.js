@@ -3,16 +3,16 @@
     * Copyright 2013-2020 Start Bootstrap
     * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-resume/blob/master/LICENSE)
     */
-    (function ($) {
+(function ($) {
     "use strict"; // Start of use strict
 
-    
+
 
     // Smooth scrolling using jQuery easing
     $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
         if (
             location.pathname.replace(/^\//, "") ==
-                this.pathname.replace(/^\//, "") &&
+            this.pathname.replace(/^\//, "") &&
             location.hostname == this.hostname
         ) {
             var target = $(this.hash);
@@ -45,4 +45,38 @@
 
 function alertContact() {
     alert("Thank you for contacting! You have just saved a Pangolin!");
-  }
+}
+
+var input = document.getElementById("searchBar");
+
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keyup", function (event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+
+        search();
+    }
+});
+
+function search() {
+
+    var name = document.getElementById("searchBar").value;
+    var pattern = name.toLowerCase();
+    var targetId = "";
+
+    var divs = document.getElementsByClassName("divText");
+    for (var i = 0; i < divs.length; i++) {
+        var para = divs[i].getElementsByTagName("p");
+        var index = divs[i].innerText.toLowerCase().indexOf(pattern);
+        if (index != -1) {
+            innerHTML = divs[i].innerText.substring(0, index) + "<span class='highlight'>" + divs[i].innerText.substring(index, index + name.length) + "</span>" + divs[i].innerText.substring(index + name.length);
+            divs[i].innerHTML = innerHTML;
+            divs[i].scrollIntoView();
+            break;
+        }
+    }
+}
+
+
