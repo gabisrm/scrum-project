@@ -54,8 +54,6 @@ function validate() {
     } else {
         alert("Thank you for contacting! You have just saved a Pangolin!");
     }
-
-    
 }
 
 var input = document.getElementById("searchBar");
